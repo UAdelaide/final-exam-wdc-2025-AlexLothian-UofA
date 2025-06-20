@@ -55,7 +55,7 @@ let db;
     )`);
 
         const [u] = await db.execute('SELECT COUNT(*) AS c FROM users');
-        if (u[0].c === 0)
+        if (u[0].c === 0) {
             await db.execute(`INSERT INTO users(username,email,password_hash,role) VALUES
       ('alice123','alice@example.com','hashed 123','owner'),
       ('bobwalker','bob@example.com','hashed 456','walker'),
@@ -82,7 +82,7 @@ let db;
         const [r] = await db.execute('SELECT COUNT(*) AS c FROM ratings');
         if (r[0].c === 0) await db.execute(`INSERT INTO ratings(walker_id,stars) VALUES
       ((SELECT user_id FROM users WHERE username='bobwalker'),5),
-      ((SELECT user_id FROM users WHERE username='bobwalker'),4)`);
+      ((SELECT user_id FROM users WHERE username='bobwalker'),4)`);}
     } catch (e) {
         console.error('DB setup error', e);
     }
