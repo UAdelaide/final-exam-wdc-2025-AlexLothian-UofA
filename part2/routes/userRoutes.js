@@ -78,8 +78,10 @@ router.post('/dog-names', async (req, res) => {
       [req.session.user.id]
     );
     res.json(rows);
-  } catch (e)
-
+  } catch (e) {
+    console.error(e);
+    res.sendStatus(500);
+  }
   }
 });
 
