@@ -20,7 +20,7 @@ app.use('/api/users', userRoutes);
 
 app.use(
     session({
-        secret: process.env.SESSION_SECRET || 'dogwalk-secret',
+        secret: 'dogwalk-secret',
         resave: false,
         saveUninitialized: false,
         cookie: { httpOnly: true, maxAge: 1000 * 60 * 60 }
