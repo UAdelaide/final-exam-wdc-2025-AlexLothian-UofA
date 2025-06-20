@@ -67,7 +67,7 @@ router.post('/logout', async (req, res) => {
   }
 });
 
-router.post('/dog-names', async (req, res) => {
+router.get('/dog-names', async (req, res) => {
   if (!req.session.user) return res.sendStatus(401);
 
   try {
