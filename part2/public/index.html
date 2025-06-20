@@ -15,7 +15,10 @@
     <form @submit.prevent="login">
       <div class="mb-3">
         <label class="form-label">Username</label>
-        <input type="text" class="form-control form-control-lg bg-warning bg-opacity-25" v-model="username"
+        <input type="text" class="form-control form-control-lg bg-warning bg-opacity-25" v-model="username" required>
+      </div>
+      <div class="mb-3">
+        
       </div>
     </form>
     <!-- <p class="lead">Connect with trusted walkers for your beloved dog!</p> -->
