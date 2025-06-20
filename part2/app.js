@@ -16,5 +16,4 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
 // Export the app instead of listening here
-// module.exports = app;
-c
+module.exports = app;
