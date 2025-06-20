@@ -49,7 +49,9 @@
                 alert('Great, now hit the BIG button.');
             },
             async fetchDog(){
-                try{}
+                try{
+                    const res = await fetch('https://dog.ceo/api/breeds/image/random');
+                }
             }
         }
     })
