@@ -48,11 +48,11 @@ let db;
                         )`);
 
         await db.execute(`CREATE TABLE IF NOT EXISTS ratings(
-      rating_id INT AUTO_INCREMENT PRIMARY KEY,
-      walker_id INT,
-      stars INT,
-      FOREIGN KEY(walker_id) REFERENCES users(user_id)
-    )`);
+                        rating_id INT AUTO_INCREMENT PRIMARY KEY,
+                        walker_id INT,
+                        stars INT,
+                        FOREIGN KEY(walker_id) REFERENCES users(user_id)
+                        )`);
 
         const [u] = await db.execute('SELECT COUNT(*) AS c FROM users');
         if (u[0].c === 0) {
