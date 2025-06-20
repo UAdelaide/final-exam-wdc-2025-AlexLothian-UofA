@@ -94,7 +94,10 @@
             const res = await fetch('api/users/dog-names', {credentials: 'include'});
             if (!res.ok) alert('Could not load dogs');
             myDogs.value = await res.json();
-          } catch
+          } catch(err) {
+            console.error(err);
+            error.vaule = 'Failed to laod your dogs'
+          }
         }
 
         async function loadWalks() {
@@ -146,6 +149,7 @@
         }
 
         onMounted(() => {
+          loadDogs();
           loadWalks();
         });
 
