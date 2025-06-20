@@ -82,6 +82,7 @@ let db;
                             ((SELECT dog_id FROM dogs WHERE name='Luna'),'2025-06-11 10:00:00',60,'City Park','open'),
                             ((SELECT dog_id FROM dogs WHERE name='Buddy'),'2025-06-12 07:30:00',45,'River Trail','open'),
                             ((SELECT dog_id FROM dogs WHERE name='Rocky'),'2025-06-10 17:00:00',30,'Hilltop Yard','open')`);
+                        }
     }
 
         const [r] = await db.execute('SELECT COUNT(*) AS c FROM ratings');
