@@ -94,7 +94,7 @@
             const res = await fetch('api/users/dog-names', {credentials: 'include'});
             if (!res.ok) alert('Could not load dogs');
             myDogs.value = await res.json();
-          }
+          } catch
         }
 
         async function loadWalks() {
