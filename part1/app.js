@@ -55,7 +55,8 @@ let db;
     )`);
 
         const [u] = await db.execute('SELECT COUNT(*) AS c FROM users');
-        if (u[0].c === 0) await db.execute(`INSERT INTO users(username,email,password_hash,role) VALUES
+        if (u[0].c === 0)
+            await db.execute(`INSERT INTO users(username,email,password_hash,role) VALUES
       ('alice123','alice@example.com','hashed 123','owner'),
       ('bobwalker','bob@example.com','hashed 456','walker'),
       ('carol123','carol@example.com','hashed 789','owner'),
