@@ -18,5 +18,14 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET || 'dogwalk-secret',
+        resave: false,
+        saveUninitialized: false,
+        cookie: { httpOnly: true, maxAge: 1000 * 60 * 60 }
+    })
+);
+
 // Export the app instead of listening here
 module.exports = app;
