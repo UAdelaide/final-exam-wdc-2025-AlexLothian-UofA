@@ -67,6 +67,8 @@ router.post('/logout', async (req, res) => {
   }
 });
 
-router.post('/dog')
+router.post('/dog-names', async (req, res) => {
+  
+});
 
 module.exports = router;
