@@ -43,7 +43,10 @@
           try {
             const res = await fetch('/login', {
               method: 'POST',
-              headers: {'Content-Type': 'appl'}
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                
+              })
             })
           }
         }
