@@ -68,10 +68,11 @@ let db;
         if (d[0].c === 0) {
             await db.execute(`INSERT INTO dogs(owner_id,name,size) VALUES
                             ((SELECT user_id FROM users WHERE username='alice123'),'Max','medium'),
-      ((SELECT user_id FROM users WHERE username='carol123'),'Bella','small'),
-      ((SELECT user_id FROM users WHERE username='carol123'),'Rocky','large'),
-      ((SELECT user_id FROM users WHERE username='alice123'),'Luna','small'),
-      ((SELECT user_id FROM users WHERE username='diana8'),'Buddy','medium')`);}
+                            ((SELECT user_id FROM users WHERE username='carol123'),'Bella','small'),
+                            ((SELECT user_id FROM users WHERE username='carol123'),'Rocky','large'),
+                            ((SELECT user_id FROM users WHERE username='alice123'),'Luna','small'),
+                            ((SELECT user_id FROM users WHERE username='diana8'),'Buddy','medium')`);
+                        }
 
         const [w] = await db.execute('SELECT COUNT(*) AS c FROM walkrequests');
         if (w[0].c === 0) await db.execute(`INSERT INTO walkrequests(dog_id,start_datetime,duration_min,location,status) VALUES
