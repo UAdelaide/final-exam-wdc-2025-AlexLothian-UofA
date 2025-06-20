@@ -9,7 +9,11 @@ app.use(morgan('dev'));
 
 // Middleware
 app.use(express.json());
-app.use(session({}))
+app.use(session({
+    secret: 'dogwalk-secret',
+    resave: false,
+    saveUninitialized: f
+}))
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
