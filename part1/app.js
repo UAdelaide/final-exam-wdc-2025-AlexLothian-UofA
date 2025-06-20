@@ -61,7 +61,7 @@ let db;
       ('bobwalker','bob@example.com','hashed 456','walker'),
       ('carol123','carol@example.com','hashed 789','owner'),
       ('diana8','diana@example.com','hashed 321','owner'),
-      ('ericwalks','eric@example.com','hashed 654','walker')`);
+      ('ericwalks','eric@example.com','hashed 654','walker')`);}
 
         const [d] = await db.execute('SELECT COUNT(*) AS c FROM dogs');
         if (d[0].c === 0) await db.execute(`INSERT INTO dogs(owner_id,name,size) VALUES
