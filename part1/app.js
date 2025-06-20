@@ -83,8 +83,9 @@ let db;
       ((SELECT dog_id FROM dogs WHERE name='Rocky'),'2025-06-10 17:00:00',30,'Hilltop Yard','open')`);
 
         const [r] = await db.execute('SELECT COUNT(*) AS c FROM ratings');
-        if (r[0].c === 0) await db.execute(`INSERT INTO ratings(walker_id,stars) VALUES
-      ((SELECT user_id FROM users WHERE username='bobwalker'),5),
+        if (r[0].c === 0) {
+            await db.execute(`INSERT INTO ratings(walker_id,stars) VALUES
+                            ((SELECT user_id FROM users WHERE username='bobwalker'),5),
       ((SELECT user_id FROM users WHERE username='bobwalker'),4)`);}
     } catch (e) {
         console.error('DB setup error', e);
