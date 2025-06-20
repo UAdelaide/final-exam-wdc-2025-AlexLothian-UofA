@@ -13,7 +13,7 @@
     </h1>
     <button type="button" @click="stepOne" :disabled="!step2Done"></button>
     <button type="button" @click="stepTwo"></button>
-    <button @click="fetchDog" :disabled="!ready">FINALLY, GET THE DOG</button>
+    <button type="button" @click="fetchDog" :disabled="!ready">
 
     <div v-if="dogUrl" style="text-align:center">
         <label for="zoomSlider">Zoom to 100 to reveal:</label>
