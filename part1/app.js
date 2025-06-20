@@ -38,14 +38,14 @@ let db;
                         )`);
 
         await db.execute(`CREATE TABLE IF NOT EXISTS walkrequests(
-      request_id INT AUTO_INCREMENT PRIMARY KEY,
-      dog_id INT,
-      start_datetime DATETIME,
-      duration_min INT,
-      location VARCHAR(255),
-      status ENUM('open','accepted','done'),
-      FOREIGN KEY(dog_id) REFERENCES dogs(dog_id)
-    )`);
+                        request_id INT AUTO_INCREMENT PRIMARY KEY,
+                        dog_id INT,
+                        start_datetime DATETIME,
+                        duration_min INT,
+                        location VARCHAR(255),
+                        status ENUM('open','accepted','done'),
+                        FOREIGN KEY(dog_id) REFERENCES dogs(dog_id)
+                        )`);
 
         await db.execute(`CREATE TABLE IF NOT EXISTS ratings(
       rating_id INT AUTO_INCREMENT PRIMARY KEY,
