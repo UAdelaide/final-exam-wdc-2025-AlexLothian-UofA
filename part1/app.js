@@ -22,9 +22,9 @@ let db;
         db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: 'testdb' });
 
         await db.execute(`CREATE TABLE IF NOT EXISTS users(
-      user_id INT AUTO_INCREMENT PRIMARY KEY,
-      username VARCHAR(50) UNIQUE,
-      email VARCHAR(100),
+                        user_id INT AUTO_INCREMENT PRIMARY KEY,
+                        username VARCHAR(50) UNIQUE,
+        email VARCHAR(100),
       password_hash VARCHAR(255),
       role ENUM('owner','walker')
     )`);
