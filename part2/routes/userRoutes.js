@@ -79,7 +79,7 @@ router.get('/dog-names', async (req, res) => {
     );
     res.json(rows);
   } catch (e) {
-    console.log()
+    console.log(req.session.user.user_id);
     console.error(e);
     res.sendStatus(500);
   }
