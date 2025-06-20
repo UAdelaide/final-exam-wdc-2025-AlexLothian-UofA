@@ -15,9 +15,9 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        maxAge: 1000 *
+        maxAge: 1000 * 60 * 60
     }
-}))
+}));
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
