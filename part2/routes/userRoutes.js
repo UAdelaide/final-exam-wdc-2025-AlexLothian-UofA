@@ -82,7 +82,6 @@ router.post('/dog-names', async (req, res) => {
     console.error(e);
     res.sendStatus(500);
   }
-  }
 });
 
 module.exports = router;
