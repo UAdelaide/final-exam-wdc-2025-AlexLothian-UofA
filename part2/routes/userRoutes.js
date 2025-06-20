@@ -79,6 +79,7 @@ router.get('/dog-names', async (req, res) => {
     );
     res.json(rows);
   } catch (e) {
+    console.log()
     console.error(e);
     res.sendStatus(500);
   }
