@@ -1,5 +1,5 @@
-const session = this.request('express-session')
 const express = require('express');
+
 const path = require('path');
 const morgan = require('morgan');
 require('dotenv').config();
