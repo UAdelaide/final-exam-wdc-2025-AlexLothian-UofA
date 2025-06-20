@@ -33,7 +33,7 @@ let db;
                         dog_id INT AUTO_INCREMENT PRIMARY KEY,
                         owner_id INT,
                         name VARCHAR(50),
-                        size ENUM('small','medium','large'),
+                        size ENUM('SMALL','MEDIUM','LARGE'),
                         FOREIGN KEY(owner_id) REFERENCES users(user_id)
                         )`);
 
@@ -43,7 +43,7 @@ let db;
                         start_datetime DATETIME,
                         duration_min INT,
                         location VARCHAR(255),
-                        status ENUM('open','accepted','done'),
+                        status ENUM('OPEN','ACCEPTED','DONE'),
                         FOREIGN KEY(dog_id) REFERENCES dogs(dog_id)
                         )`);
 
@@ -62,35 +62,34 @@ let db;
                             ('carol123','carol@example.com','hashed 789','owner'),
                             ('diana8','diana@example.com','hashed 321','owner'),
                             ('ericwalks','eric@example.com','hashed 654','walker')`);
-                        }
+        }
 
         const [d] = await db.execute('SELECT COUNT(*) AS c FROM dogs');
         if (d[0].c === 0) {
             await db.execute(`INSERT INTO dogs(owner_id,name,size) VALUES
-                            ((SELECT user_id FROM users WHERE username='alice123'),'Max','medium'),
-                            ((SELECT user_id FROM users WHERE username='carol123'),'Bella','small'),
-                            ((SELECT user_id FROM users WHERE username='carol123'),'Rocky','large'),
-                            ((SELECT user_id FROM users WHERE username='alice123'),'Luna','small'),
-                            ((SELECT user_id FROM users WHERE username='diana8'),'Buddy','medium')`);
-                        }
+                            ((SELECT user_id FROM users WHERE username='alice123'),'Max','MEDIUM'),
+                            ((SELECT user_id FROM users WHERE username='carol123'),'Bella','SMALL'),
+                            ((SELECT user_id FROM users WHERE username='carol123'),'Poppy','LARGE'),
+                            ((SELECT user_id FROM users WHERE username='alice123'),'Rusheek','SMALL'),
+                            ((SELECT user_id FROM users WHERE username='diana8'),'Buddy','MEDIUM')`);
+        }
 
         const [w] = await db.execute('SELECT COUNT(*) AS c FROM walkrequests');
         if (w[0].c === 0) {
             await db.execute(`INSERT INTO walkrequests(dog_id,start_datetime,duration_min,location,status) VALUES
-                            ((SELECT dog_id FROM dogs WHERE name='Max'),'2025-06-10 08:00:00',30,'Parklands','open'),
-                            ((SELECT dog_id FROM dogs WHERE name='Bella'),'2025-06-10 09:30:00',45,'Beachside Ave','accepted'),
-                            ((SELECT dog_id FROM dogs WHERE name='Luna'),'2025-06-11 10:00:00',60,'City Park','open'),
-                            ((SELECT dog_id FROM dogs WHERE name='Buddy'),'2025-06-12 07:30:00',45,'River Trail','open'),
-                            ((SELECT dog_id FROM dogs WHERE name='Rocky'),'2025-06-10 17:00:00',30,'Hilltop Yard','open')`);
-                        }
-
+                            ((SELECT dog_id FROM dogs WHERE name='Max'   AND owner_id=(SELECT user_id FROM users WHERE username='alice123')),'2025-06-10 08:00:00',30,'Parklands','OPEN'),
+                            ((SELECT dog_id FROM dogs WHERE name='Bella' AND owner_id=(SELECT user_id FROM users WHERE username='carol123')),'2025-06-10 09:30:00',45,'Beachside Ave','ACCEPTED'),
+                            ((SELECT dog_id FROM dogs WHERE name='Poppy' AND owner_id=(SELECT user_id FROM users WHERE username='alice123')),'2025-06-11 10:00:00',60,'City Park','OPEN'),
+                            ((SELECT dog_id FROM dogs WHERE name='Buddy' AND owner_id=(SELECT user_id FROM users WHERE username='diana8')),'2025-06-12 07:30:00',45,'River Trail','OPEN'),
+                            ((SELECT dog_id FROM dogs WHERE name='Poppy' AND owner_id=(SELECT user_id FROM users WHERE username='carol123')),'2025-06-10 17:00:00',30,'Hilltop Yard','OPEN')`);
+        }
 
         const [r] = await db.execute('SELECT COUNT(*) AS c FROM ratings');
         if (r[0].c === 0) {
             await db.execute(`INSERT INTO ratings(walker_id,stars) VALUES
                             ((SELECT user_id FROM users WHERE username='bobwalker'),5),
                             ((SELECT user_id FROM users WHERE username='bobwalker'),4)`);
-                        }
+        }
     } catch (e) {
         console.error('DB setup error', e);
     }
@@ -116,7 +115,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
       FROM walkrequests w
       JOIN dogs d ON w.dog_id=d.dog_id
       JOIN users u ON d.owner_id=u.user_id
-      WHERE w.status='open'
+      WHERE w.status='OPEN'
     `);
         res.json(rows);
     } catch (e) {
