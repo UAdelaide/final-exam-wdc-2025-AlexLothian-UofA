@@ -11,9 +11,9 @@
     <h1 style="text-align:center;text-transform:uppercase;text-shadow:2px 2px 5px yellow">
         Click EVERY button in ORDER to see the Dog of the Day!
     </h1>
-    <button type="button" @click="stepOne" :disabled="!step2Done">Step 1:Prepare</button>
-    <button type="button" @click="stepTwo">Step 2:&nbsp;Authorise</button>
-    <button type="button" @click="fetchDog" :disabled="!ready">
+    <button type="button" @click="stepOne" :disabled="!step2Done">Step 1: Prepare</button>
+    <button type="button" @click="stepTwo">Step 2: Authorise</button>
+    <button type="button" @click="fetchDog" :disabled="!ready">FINALLY, GET&nbsp;THE&nbsp;DOG</button>
 
     <div v-if="dogUrl" style="text-align:center">
         <label for="zoomSlider">Zoom to 100 to reveal:</label>
