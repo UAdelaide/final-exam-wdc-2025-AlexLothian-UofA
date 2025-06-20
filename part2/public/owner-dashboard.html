@@ -91,7 +91,7 @@
 
         async function loadDogs() {
           try {
-            const res = await fetch('api/users/dog-names')
+            const res = await fetch('api/users/dog-names', {credentials: 'include'})
           }
         }
 
