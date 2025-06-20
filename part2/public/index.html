@@ -15,11 +15,11 @@
     <form @submit.prevent="login">
       <div class="mb-3">
         <label class="form-label">Username</label>
-        <input type="text" class="form-control form-control-lg bg-secondary bg-opacity-25" v-model="username" required>
+        <input type="text" class="form-control form-control-lg" v-model="username" required>
       </div>
       <div class="mb-3">
         <label class="form-label">Password</label>
-        <input type="password" class="form-control form-control-lg bg-secondary bg-opacity-25" v-model="password" required>
+        <input type="password" class="form-control form-control-lg" v-model="password" required>
       </div>
       <button type="submit" class="btn btn-primary btn-lg">Log In</button>
     </form>
