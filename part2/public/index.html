@@ -55,11 +55,11 @@
               const dest = role === 'walker'
               ? 'walker-dashboard.html'
               : 'owner-dashboard.html';
-      window.location.href = dest;
-    } else {
-      alert(data.error || 'Login failed');
-    }
-  } catch (err) {
+              window.location.href = dest;
+            } else {
+              alert(data.error || 'Login failed');
+            }
+          } catch (err) {
     console.error(err);
     alert('Network error');
   }
