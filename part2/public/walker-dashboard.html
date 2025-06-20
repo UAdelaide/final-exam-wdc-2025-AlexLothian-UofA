@@ -80,7 +80,10 @@
 
         async function logout() {
           try {
-            await fetch('/logout', {})
+            await fetch('/logout', {
+              method : 'POST',
+              credentials: 'include'
+            });
           }
         }
 
