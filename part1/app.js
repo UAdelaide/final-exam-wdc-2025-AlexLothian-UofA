@@ -75,18 +75,21 @@ let db;
                         }
 
         const [w] = await db.execute('SELECT COUNT(*) AS c FROM walkrequests');
-        if (w[0].c === 0) await db.execute(`INSERT INTO walkrequests(dog_id,start_datetime,duration_min,location,status) VALUES
-      ((SELECT dog_id FROM dogs WHERE name='Max'),'2025-06-10 08:00:00',30,'Parklands','open'),
-      ((SELECT dog_id FROM dogs WHERE name='Bella'),'2025-06-10 09:30:00',45,'Beachside Ave','accepted'),
+        if (w[0].c === 0) {
+            await db.execute(`INSERT INTO walkrequests(dog_id,start_datetime,duration_min,location,status) VALUES
+                            ((SELECT dog_id FROM dogs WHERE name='Max'),'2025-06-10 08:00:00',30,'Parklands','open'),
+                            ((SELECT dog_id FROM dogs WHERE name='Bella'),'2025-06-10 09:30:00',45,'Beachside Ave','accepted'),
       ((SELECT dog_id FROM dogs WHERE name='Luna'),'2025-06-11 10:00:00',60,'City Park','open'),
       ((SELECT dog_id FROM dogs WHERE name='Buddy'),'2025-06-12 07:30:00',45,'River Trail','open'),
       ((SELECT dog_id FROM dogs WHERE name='Rocky'),'2025-06-10 17:00:00',30,'Hilltop Yard','open')`);
+    }
 
         const [r] = await db.execute('SELECT COUNT(*) AS c FROM ratings');
         if (r[0].c === 0) {
             await db.execute(`INSERT INTO ratings(walker_id,stars) VALUES
                             ((SELECT user_id FROM users WHERE username='bobwalker'),5),
-      ((SELECT user_id FROM users WHERE username='bobwalker'),4)`);}
+                            ((SELECT user_id FROM users WHERE username='bobwalker'),4)`);
+                        }
     } catch (e) {
         console.error('DB setup error', e);
     }
