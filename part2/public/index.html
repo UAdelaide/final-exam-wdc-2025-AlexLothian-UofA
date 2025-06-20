@@ -53,7 +53,9 @@
             if (res.ok){
               window.location.href = 'owner-dashboard.html';
             }
-          }catch
+          }catch {
+            console.error(err)
+          }
         }
       }
     }).mount('#app');
