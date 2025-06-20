@@ -24,18 +24,18 @@ let db;
         await db.execute(`CREATE TABLE IF NOT EXISTS users(
                         user_id INT AUTO_INCREMENT PRIMARY KEY,
                         username VARCHAR(50) UNIQUE,
-        email VARCHAR(100),
-      password_hash VARCHAR(255),
-      role ENUM('owner','walker')
-    )`);
+                        email VARCHAR(100),
+                        password_hash VARCHAR(255),
+                        role ENUM('owner','walker')
+                        )`);
 
         await db.execute(`CREATE TABLE IF NOT EXISTS dogs(
-      dog_id INT AUTO_INCREMENT PRIMARY KEY,
-      owner_id INT,
-      name VARCHAR(50),
-      size ENUM('small','medium','large'),
-      FOREIGN KEY(owner_id) REFERENCES users(user_id)
-    )`);
+                        dog_id INT AUTO_INCREMENT PRIMARY KEY,
+                        owner_id INT,
+                        name VARCHAR(50),
+                        size ENUM('small','medium','large'),
+                        FOREIGN KEY(owner_id) REFERENCES users(user_id)
+                        )`);
 
         await db.execute(`CREATE TABLE IF NOT EXISTS walkrequests(
       request_id INT AUTO_INCREMENT PRIMARY KEY,
