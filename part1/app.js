@@ -16,10 +16,10 @@ let db;
 (async () => {
     try {
         const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: '' });
-        await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
+        await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
         await connection.end();
 
-        db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: 'testdb' });
+        db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: 'DogWalkService' });
 
         await db.execute(`CREATE TABLE IF NOT EXISTS users(
                         user_id INT AUTO_INCREMENT PRIMARY KEY,
