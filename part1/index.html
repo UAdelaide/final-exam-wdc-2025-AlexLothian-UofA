@@ -31,7 +31,14 @@
     const { createApp } = Vue;
 
     createApp({
-        data(){}
+        data(){
+            return{
+                step2Done:false,
+                ready:false,
+                dogUrl:'',
+                zoom:0
+            };
+        }
     })
 </script>
 </body>
