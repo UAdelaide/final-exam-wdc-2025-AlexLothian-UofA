@@ -12,7 +12,11 @@ app.use(express.json());
 app.use(session({
     secret: 'dogwalk-secret',
     resave: false,
-    saveUninitialized: f
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        maxAge: 1000 *
+    }
 }))
 app.use(express.static(path.join(__dirname, '/public')));
 
