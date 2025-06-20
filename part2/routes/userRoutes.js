@@ -68,7 +68,13 @@ router.post('/logout', async (req, res) => {
 });
 
 router.post('/dog-names', async (req, res) => {
-  
+  if (!req.session.user) return res.sendStatus(401);
+
+  try {
+    const [rows] = await db.query(
+      ``
+    )
+  }
 });
 
 module.exports = router;
