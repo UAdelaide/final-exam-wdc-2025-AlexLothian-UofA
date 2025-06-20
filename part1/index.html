@@ -12,7 +12,7 @@
         Click EVERY button in ORDER to see the Dog of the Day!
     </h1>
     <button type="button" @click="stepOne" :disabled="!step2Done">Step 1:Prepare</button>
-    <button type="button" @click="stepTwo">
+    <button type="button" @click="stepTwo">Step 2:&nbsp;Authorise</button>
     <button type="button" @click="fetchDog" :disabled="!ready">
 
     <div v-if="dogUrl" style="text-align:center">
