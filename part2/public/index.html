@@ -100,7 +100,8 @@
               allDogs.map(async dog => {
                 try {
                   const picResolve = await fetch('https://dog.ceo/api/breeds/image/random');
-                  const {message} = await
+                  const {message} = await picResolve.json();
+                  return 
                 }
               })
             )
