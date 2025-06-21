@@ -89,8 +89,8 @@
             console.error(err);
             alert('Network error');
           }
-        }
-        loadDogs(){
+
+        async loadDogs(){
           try {
             const dogRes = await fetch('/api/dogs');
             if (!dogRes.ok) throw new Error('Failed to fetch dogs');
