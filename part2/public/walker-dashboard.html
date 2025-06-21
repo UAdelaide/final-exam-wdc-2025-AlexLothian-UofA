@@ -56,9 +56,10 @@
             const user = await res.json();
             userID = user.user_id;
           } catch (err) {
-            
+            window.location.href = '/';
           }
         }
+
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
