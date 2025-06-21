@@ -56,7 +56,7 @@
             const user = await res.json();
             userID = user.user_id;
           } catch (err) {
-            window.location.href = '/';
+            window.location.href = '/'; // invalid user, send them 
           }
         }
 
