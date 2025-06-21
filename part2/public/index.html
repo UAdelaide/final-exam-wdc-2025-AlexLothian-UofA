@@ -103,7 +103,7 @@
                   const {message} = await picResolve.json();
                   return {...dog, photo:message};
                 } catch {
-                  return {}
+                  return {...dog, photo:''}; // cant load pic
                 }
               })
             )
