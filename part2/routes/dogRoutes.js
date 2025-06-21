@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
         );
         res.json(rows);
     } catch (err) {
-        console.error('')
+        console.error('SQL Error:', err);
+        res.status(500)
     }
 })
