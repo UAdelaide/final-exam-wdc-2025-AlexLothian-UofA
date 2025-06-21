@@ -8,6 +8,9 @@ router.get('/', async (req, res) => {
             `SELECT dog_id, name, size, owner_id
             FROM Dogs
             ORDER BY dog_id`
-        )
+        );
+        res.json(rows);
+    } catch (err) {
+        console.error('')
     }
 })
