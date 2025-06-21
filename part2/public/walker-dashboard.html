@@ -54,13 +54,10 @@
             const res = await fetch('/api/users/me', {credentials: 'include'});
             if (!res.ok) throw new Error('Not logged in');
             const user = await res.json();
-            console.log(user);
-            console.log(user.user_id);
             userID.value = user.user_id;
           } catch (err) {
-            console.log('Can not get user');
             console.log(err);
-            //window.location.href = '/'; // invalid user, send them to log in?
+            window.location.href = '/'; // invalid user, send them to log in?
           }
         }
 
