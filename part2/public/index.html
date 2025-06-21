@@ -93,7 +93,8 @@
         loadDogs(){
           try {
             const dogRes = await fetch('/api/dogs');
-            if (!dogRes.ok)
+            if (!dogRes.ok) throw new Error('Failed to fetch dogs');
+            const allDogs = await dogRes.json();
           }
         }
       }
