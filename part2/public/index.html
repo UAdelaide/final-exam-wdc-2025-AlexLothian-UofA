@@ -101,7 +101,9 @@
                 try {
                   const picResolve = await fetch('https://dog.ceo/api/breeds/image/random');
                   const {message} = await picResolve.json();
-                  return 
+                  return {...dog, photo:message};
+                } catch {
+                  return {}
                 }
               })
             )
