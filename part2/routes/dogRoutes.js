@@ -4,6 +4,8 @@ const db = require('../models.db');
 
 router.get('/', async (req, res) => {
     try {
-        const [rows] = await
+        const [rows] = await db.query(
+            `SELECT dog_id, name, size `
+        )
     }
 })
