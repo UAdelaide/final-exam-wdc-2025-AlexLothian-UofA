@@ -113,6 +113,9 @@
             console.error(err);
           }
         }
+      },
+      mounted() {
+        loadDogs();
       }
     }).mount('#app');
   </script>
