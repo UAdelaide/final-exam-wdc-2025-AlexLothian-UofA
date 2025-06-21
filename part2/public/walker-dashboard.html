@@ -54,6 +54,7 @@
             const res = await fetch('/api/users/me', {credentials: 'include'});
             if (!res.ok) throw new Error('Not logged in');
             const user = await res.json();
+            console.log(user);
             userID = user.user_id;
           } catch (err) {
             console.log('Can not get user');
