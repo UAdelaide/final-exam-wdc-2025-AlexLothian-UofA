@@ -97,7 +97,11 @@
             const allDogs = await dogRes.json();
 
             const dogPics = await Promise.all(
-              allDogs.map(async dog)
+              allDogs.map(async dog => {
+                try {
+                  const picR
+                }
+              })
             )
           }
         }
