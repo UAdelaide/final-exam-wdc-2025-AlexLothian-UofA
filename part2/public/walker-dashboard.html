@@ -72,11 +72,12 @@
 
         async function applyToWalk(requestId) {
           try {
-            if (walkerId.value === null) throw new Error('User')
+            if (walkerId.value === null) throw new Error('UserID not loaded');
+
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: user })
+              body: JSON.stringify({ walker_id: userID })
             });
             const result = await res.json();
 
