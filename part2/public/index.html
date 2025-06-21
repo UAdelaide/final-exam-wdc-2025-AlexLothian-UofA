@@ -92,7 +92,8 @@
         }
         loadDogs(){
           try {
-            const dogRes = await fetch('/')
+            const dogRes = await fetch('/api/dogs');
+            if (!dogRes.ok)
           }
         }
       }
