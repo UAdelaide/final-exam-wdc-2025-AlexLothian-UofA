@@ -96,7 +96,9 @@
             if (!dogRes.ok) throw new Error('Failed to fetch dogs');
             const allDogs = await dogRes.json();
 
-            const dogPics = await 
+            const dogPics = await Promise.all(
+              allDogs.map(async dog)
+            )
           }
         }
       }
