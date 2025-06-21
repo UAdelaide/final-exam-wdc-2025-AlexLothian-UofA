@@ -73,7 +73,7 @@
 
         async function applyToWalk(requestId) {
           try {
-            if (walkerId.value === null) throw new Error('UserID not loaded');
+            if (userID.value === null) throw new Error('UserID not loaded');
 
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
